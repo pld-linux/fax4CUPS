@@ -1,0 +1,68 @@
+diff -urN fax4CUPS-1.24.org/hylafax fax4CUPS-1.24/hylafax
+--- fax4CUPS-1.24.org/hylafax	2004-07-07 14:45:06.000000000 +0200
++++ fax4CUPS-1.24/hylafax	2005-03-12 23:58:05.000000000 +0100
+@@ -6,6 +6,8 @@
+ FAXPRG=/usr/sbin/sendfax
+ FAXSTAT=/usr/bin/faxstat
+ 
++[ -r /etc/cups/hylafax ] && . /etc/cups/hylafax
++
+ #
+ # This is fax4CUPS 1.24, a fax back-end for CUPS
+ #
+@@ -51,6 +53,7 @@
+ # Get the user that owns the job
+ USER=$2
+ FROM=$USER
++[ -n "$HYLAFAX_USER" ] && USER="$HYLAFAX_USER"
+ 
+ # Apparently the first character emitted is somehow "eaten" by the reader
+ echo 1>&2
+@@ -59,6 +62,10 @@
+ # otherwise, it is empty and sendfax will read standard input.
+ FAXNAME=$6
+ 
++# Remote host
++HHOST=""
++[ -n "$HYLAFAX_IP" ] && HHOST="-h $HYLAFAX_IP"
++
+ # Set some defaults
+ RES="-m"	# Default resolution is high; set this to -l for low resolution
+ NUMBER=""	# Use option "phone" as number by default
+@@ -112,7 +119,7 @@
+ 	echo "ERROR: $FAXPRG: executable not found"  1>&2
+ 	# Raise error and hang the queue: this is fatal !
+ 	exit 1
+-elif [ -z "$RUNNING" ]; then
++elif [ -z "$HYLAFAX_IP" -a -z "$RUNNING" ]; then
+ 	echo "ERROR: HylaFAX not running"  1>&2
+ 	# Raise error and hang the queue: this is fatal !
+ 	exit 1
+@@ -121,9 +128,13 @@
+ # Remove possible whitespace in number: replace by period
+ NUMBER=${NUMBER// /.}
+ 
++if [ "$HYLAFAX_SUDO" != "no" ]; then
+ # Use sudo to make sure that job is owned by the user that wants to "print",
+ # not root. This is needed so that the owner of the job can remove it if needed.
+-sudo -u $USER $FAXPRG -s $PAGE $RES -n -f $FROM -d $NUMBER $FAXNAME
++    sudo -u $USER $FAXPRG $HHOST -s $PAGE $RES -n -f $FROM -d $NUMBER $FAXNAME
++else
++    $FAXPRG $HHOST -s $PAGE $RES -n -f $FROM -d $NUMBER $FAXNAME
++fi
+ 
+ RC=$?
+ case $RC in
+diff -urN fax4CUPS-1.24.org/hylafax.ppd fax4CUPS-1.24/hylafax.ppd
+--- fax4CUPS-1.24.org/hylafax.ppd	2004-07-07 14:45:06.000000000 +0200
++++ fax4CUPS-1.24/hylafax.ppd	2005-03-12 23:50:36.000000000 +0100
+@@ -44,6 +44,9 @@
+ *PageRegion Legal/US Legal:	"<</PageSize[612 1008]/ImagingBBox null>>setpagedevice"
+ 
+ *DefaultImageableArea: A4
++*ImageableArea Letter/US Letter:	"18 36 594 756"
++*ImageableArea Legal/US Legal:		"18 36 594 972"
++*ImageableArea A4/A4:			"18 36 577 806"
+ 
+ *DefaultPaperDimension: A4
+ *PaperDimension A4: "595 842"
