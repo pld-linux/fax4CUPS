@@ -16,7 +16,7 @@ Fax4CUPS - CUPS backend for a serial fax modem
 %package compat
 Summary:	Compatibility fax backend
 Group:		Applications/Communications
-Requires:	%{name}-%{version}
+Requires:	%{name} = %{version}
 
 %description compat
 Compatibility fax backend.
@@ -24,7 +24,7 @@ Compatibility fax backend.
 %package efax
 Summary:	efax backend
 Group:		Applications/Communications
-Requires:	%{name}-%{version}
+Requires:	%{name} = %{version}
 
 %description efax
 efax backend
@@ -32,7 +32,8 @@ efax backend
 %package hylafax
 Summary:	hylafax backend
 Group:		Applications/Communications
-Requires:	%{name}-%{version}
+Requires:	%{name} = %{version}
+Requires:	hylafax-client
 
 %description hylafax
 hylafax backend
