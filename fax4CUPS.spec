@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://gongolo.usr.dsi.unimi.it/~vigna/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	0a7884a59986bd68686077e67ac4ffba
 URL:		http://gongolo.usr.dsi.unimi.it/~vigna/%{name}/
 BuildRequires:	cups-devel
 Requires:	cups
