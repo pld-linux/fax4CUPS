@@ -1,6 +1,6 @@
 diff -urN fax4CUPS-1.24.org/hylafax fax4CUPS-1.24/hylafax
 --- fax4CUPS-1.24.org/hylafax	2004-07-07 14:45:06.000000000 +0200
-+++ fax4CUPS-1.24/hylafax	2005-03-13 00:09:51.000000000 +0100
++++ fax4CUPS-1.24/hylafax	2005-03-13 02:51:52.000000000 +0100
 @@ -4,8 +4,12 @@
  NAME=""
  PAGE=a4
@@ -9,7 +9,7 @@ diff -urN fax4CUPS-1.24.org/hylafax fax4CUPS-1.24/hylafax
 +
  FAXSTAT=/usr/bin/faxstat
  
-+[ -f /etc/cups/hylafax ] && . /etc/cups/hylafax
++[ -r /etc/cups/hylafax ] && . /etc/cups/hylafax
 +
  #
  # This is fax4CUPS 1.24, a fax back-end for CUPS
@@ -50,9 +50,9 @@ diff -urN fax4CUPS-1.24.org/hylafax fax4CUPS-1.24/hylafax
  # Use sudo to make sure that job is owned by the user that wants to "print",
  # not root. This is needed so that the owner of the job can remove it if needed.
 -sudo -u $USER $FAXPRG -s $PAGE $RES -n -f $FROM -d $NUMBER $FAXNAME
-+    sudo -u $USER $FAXPRG $HHOST -s $PAGE $RES -n -f $FROM -d $NUMBER $FAXNAME
++    sudo -u $USER $FAXPRG $HYLAFAX_OPT $HHOST -s $PAGE $RES -n -f $FROM -d $NUMBER $FAXNAME
 +else
-+    $FAXPRG $HHOST -s $PAGE $RES -n -f $FROM -d $NUMBER $FAXNAME
++    $FAXPRG $HYLAFAX_OPT $HHOST -s $PAGE $RES -n -f $FROM -d $NUMBER $FAXNAME
 +fi
  
  RC=$?
