@@ -1,14 +1,15 @@
 Summary:	Fax4CUPS - CUPS backend for a serial fax modem
 Summary(pl):	Fax4CUPS - backend CUPS-a do szeregowych fax-modemów
 Name:		fax4CUPS
-Version:	1.22
-Release:	2
+Version:	1.23
+Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://gongolo.usr.dsi.unimi.it/~vigna/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	0a7884a59986bd68686077e67ac4ffba
+# Source0-md5:	8fec1e26f0b6d1d97fa1ca7aca95dc63
 URL:		http://gongolo.usr.dsi.unimi.it/~vigna/fax4CUPS/
 BuildRequires:	cups-devel
+Requires:	bash
 Requires:	cups
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -57,6 +58,19 @@ hylafax backend.
 %description -n cups-backend-hylafax -l pl
 Backend do hylafaksa.
 
+%package -n cups-backend-mgetty
+Summary:	mgetty backend
+Summary(pl):	Backend do mgetty
+Group:		Applications/Communications
+Requires:	%{name} = %{version}
+Requires:	mgetty
+
+%description -n cups-backend-mgetty
+mgetty backend.
+
+%description -n cups-backend-mgetty -l pl
+Backend do mgetty.
+
 %prep
 %setup -q
 
@@ -69,7 +83,7 @@ install *.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install -d $RPM_BUILD_ROOT%(cups-config --serverbin)/backend
 install -d $RPM_BUILD_ROOT%(cups-config --datadir)/model
 
-install fax efax hylafax $RPM_BUILD_ROOT%(cups-config --serverbin)/backend
+install fax efax hylafax mgetty-fax $RPM_BUILD_ROOT%(cups-config --serverbin)/backend
 install *.ppd $RPM_BUILD_ROOT%(cups-config --datadir)/model
 
 %clean
@@ -93,3 +107,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %(cups-config --serverbin)/backend/hylafax
 %(cups-config --datadir)/model/hylafax.ppd
+
+%files -n cups-backend-mgetty
+%defattr(644,root,root,755)
+%attr(755,root,root) %(cups-config --serverbin)/backend/mgetty-fax
+%(cups-config --datadir)/model/mgetty-fax.ppd
