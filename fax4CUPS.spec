@@ -26,7 +26,7 @@ Fax4CUPS - backend CUPS-a do szeregowych fax-modemów.
 Summary:	Compatibility fax backend
 Summary(pl):	Backend faksowy dla kompatybilno¶ci
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description -n cups-backend-fax-compat
 Compatibility fax backend.
@@ -38,7 +38,7 @@ Backend faksowy dla kompatybilno¶ci.
 Summary:	efax backend
 Summary(pl):	Backend do efaksa
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	efax
 
 %description -n cups-backend-efax
@@ -51,7 +51,7 @@ Backend do efaksa.
 Summary:	hylafax backend
 Summary(pl):	Backend do hylafaksa
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	hylafax-client
 
 %description -n cups-backend-hylafax
@@ -64,7 +64,7 @@ Backend do hylafaksa.
 Summary:	mgetty backend
 Summary(pl):	Backend do mgetty
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	mgetty
 
 %description -n cups-backend-mgetty
@@ -77,7 +77,7 @@ Backend do mgetty.
 Summary:	capisuite backend
 Summary(pl):	Backend do capisuite
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description -n cups-backend-capisuite
 capisuite backend.
