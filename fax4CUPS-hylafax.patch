@@ -1,6 +1,6 @@
 diff -urN fax4CUPS-1.24.org/hylafax fax4CUPS-1.24/hylafax
 --- fax4CUPS-1.24.org/hylafax	2004-07-07 14:45:06.000000000 +0200
-+++ fax4CUPS-1.24/hylafax	2005-03-13 02:51:52.000000000 +0100
++++ fax4CUPS-1.24/hylafax	2005-03-13 02:54:23.000000000 +0100
 @@ -4,8 +4,12 @@
  NAME=""
  PAGE=a4
@@ -14,15 +14,16 @@ diff -urN fax4CUPS-1.24.org/hylafax fax4CUPS-1.24/hylafax
  #
  # This is fax4CUPS 1.24, a fax back-end for CUPS
  #
-@@ -51,6 +55,7 @@
+@@ -51,6 +55,8 @@
  # Get the user that owns the job
  USER=$2
  FROM=$USER
 +[ -n "$HYLAFAX_USER" ] && USER="$HYLAFAX_USER"
++[ -n "$HYLAFAX_FROM" ] && FROM="$HYLAFAX_FROM"
  
  # Apparently the first character emitted is somehow "eaten" by the reader
  echo 1>&2
-@@ -59,6 +64,10 @@
+@@ -59,6 +65,10 @@
  # otherwise, it is empty and sendfax will read standard input.
  FAXNAME=$6
  
@@ -33,7 +34,7 @@ diff -urN fax4CUPS-1.24.org/hylafax fax4CUPS-1.24/hylafax
  # Set some defaults
  RES="-m"	# Default resolution is high; set this to -l for low resolution
  NUMBER=""	# Use option "phone" as number by default
-@@ -112,7 +121,7 @@
+@@ -112,7 +122,7 @@
  	echo "ERROR: $FAXPRG: executable not found"  1>&2
  	# Raise error and hang the queue: this is fatal !
  	exit 1
@@ -42,7 +43,7 @@ diff -urN fax4CUPS-1.24.org/hylafax fax4CUPS-1.24/hylafax
  	echo "ERROR: HylaFAX not running"  1>&2
  	# Raise error and hang the queue: this is fatal !
  	exit 1
-@@ -121,9 +130,13 @@
+@@ -121,9 +131,13 @@
  # Remove possible whitespace in number: replace by period
  NUMBER=${NUMBER// /.}
  
