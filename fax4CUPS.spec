@@ -124,7 +124,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %(cups-config --serverbin)/backend/hylafax
 %(cups-config --datadir)/model/hylafax.ppd
-%attr(644,root,root) %config(noreplace) %verify(not %(cups-config --serverroot md5) mtime size)/hylafax
+%attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) %(cups-config --serverroot)/hylafax
 
 %files -n cups-backend-mgetty
 %defattr(644,root,root,755)
