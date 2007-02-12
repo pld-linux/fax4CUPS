@@ -1,5 +1,5 @@
 Summary:	Fax4CUPS - CUPS backend for a serial fax modem
-Summary(pl):	Fax4CUPS - backend CUPS-a do szeregowych fax-modemÛw
+Summary(pl.UTF-8):   Fax4CUPS - backend CUPS-a do szeregowych fax-modem√≥w
 Name:		fax4CUPS
 Version:	1.24
 Release:	1
@@ -19,24 +19,24 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Fax4CUPS - CUPS backend for a serial fax modem.
 
-%description -l pl
-Fax4CUPS - backend CUPS-a do szeregowych fax-modemÛw.
+%description -l pl.UTF-8
+Fax4CUPS - backend CUPS-a do szeregowych fax-modem√≥w.
 
 %package -n cups-backend-fax-compat
 Summary:	Compatibility fax backend
-Summary(pl):	Backend faksowy dla kompatybilno∂ci
+Summary(pl.UTF-8):   Backend faksowy dla kompatybilno≈õci
 Group:		Applications/Communications
 Requires:	%{name} = %{version}-%{release}
 
 %description -n cups-backend-fax-compat
 Compatibility fax backend.
 
-%description -n cups-backend-fax-compat -l pl
-Backend faksowy dla kompatybilno∂ci.
+%description -n cups-backend-fax-compat -l pl.UTF-8
+Backend faksowy dla kompatybilno≈õci.
 
 %package -n cups-backend-efax
 Summary:	efax backend
-Summary(pl):	Backend do efaksa
+Summary(pl.UTF-8):   Backend do efaksa
 Group:		Applications/Communications
 Requires:	%{name} = %{version}-%{release}
 Requires:	efax
@@ -44,12 +44,12 @@ Requires:	efax
 %description -n cups-backend-efax
 efax backend.
 
-%description -n cups-backend-efax -l pl
+%description -n cups-backend-efax -l pl.UTF-8
 Backend do efaksa.
 
 %package -n cups-backend-hylafax
 Summary:	hylafax backend
-Summary(pl):	Backend do hylafaksa
+Summary(pl.UTF-8):   Backend do hylafaksa
 Group:		Applications/Communications
 Requires:	%{name} = %{version}-%{release}
 Requires:	hylafax-client
@@ -57,12 +57,12 @@ Requires:	hylafax-client
 %description -n cups-backend-hylafax
 hylafax backend.
 
-%description -n cups-backend-hylafax -l pl
+%description -n cups-backend-hylafax -l pl.UTF-8
 Backend do hylafaksa.
 
 %package -n cups-backend-mgetty
 Summary:	mgetty backend
-Summary(pl):	Backend do mgetty
+Summary(pl.UTF-8):   Backend do mgetty
 Group:		Applications/Communications
 Requires:	%{name} = %{version}-%{release}
 Requires:	mgetty
@@ -70,19 +70,19 @@ Requires:	mgetty
 %description -n cups-backend-mgetty
 mgetty backend.
 
-%description -n cups-backend-mgetty -l pl
+%description -n cups-backend-mgetty -l pl.UTF-8
 Backend do mgetty.
 
 %package -n cups-backend-capisuite
 Summary:	capisuite backend
-Summary(pl):	Backend do capisuite
+Summary(pl.UTF-8):   Backend do capisuite
 Group:		Applications/Communications
 Requires:	%{name} = %{version}-%{release}
 
 %description -n cups-backend-capisuite
 capisuite backend.
 
-%description -n cups-backend-capisuite -l pl
+%description -n cups-backend-capisuite -l pl.UTF-8
 Backend do capisuite.
 
 %prep
