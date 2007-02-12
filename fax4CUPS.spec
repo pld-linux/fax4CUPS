@@ -1,5 +1,5 @@
 Summary:	Fax4CUPS - CUPS backend for a serial fax modem
-Summary(pl.UTF-8):   Fax4CUPS - backend CUPS-a do szeregowych fax-modemów
+Summary(pl.UTF-8):	Fax4CUPS - backend CUPS-a do szeregowych fax-modemów
 Name:		fax4CUPS
 Version:	1.24
 Release:	1
@@ -24,7 +24,7 @@ Fax4CUPS - backend CUPS-a do szeregowych fax-modemów.
 
 %package -n cups-backend-fax-compat
 Summary:	Compatibility fax backend
-Summary(pl.UTF-8):   Backend faksowy dla kompatybilności
+Summary(pl.UTF-8):	Backend faksowy dla kompatybilności
 Group:		Applications/Communications
 Requires:	%{name} = %{version}-%{release}
 
@@ -36,7 +36,7 @@ Backend faksowy dla kompatybilności.
 
 %package -n cups-backend-efax
 Summary:	efax backend
-Summary(pl.UTF-8):   Backend do efaksa
+Summary(pl.UTF-8):	Backend do efaksa
 Group:		Applications/Communications
 Requires:	%{name} = %{version}-%{release}
 Requires:	efax
@@ -49,7 +49,7 @@ Backend do efaksa.
 
 %package -n cups-backend-hylafax
 Summary:	hylafax backend
-Summary(pl.UTF-8):   Backend do hylafaksa
+Summary(pl.UTF-8):	Backend do hylafaksa
 Group:		Applications/Communications
 Requires:	%{name} = %{version}-%{release}
 Requires:	hylafax-client
@@ -62,7 +62,7 @@ Backend do hylafaksa.
 
 %package -n cups-backend-mgetty
 Summary:	mgetty backend
-Summary(pl.UTF-8):   Backend do mgetty
+Summary(pl.UTF-8):	Backend do mgetty
 Group:		Applications/Communications
 Requires:	%{name} = %{version}-%{release}
 Requires:	mgetty
@@ -75,7 +75,7 @@ Backend do mgetty.
 
 %package -n cups-backend-capisuite
 Summary:	capisuite backend
-Summary(pl.UTF-8):   Backend do capisuite
+Summary(pl.UTF-8):	Backend do capisuite
 Group:		Applications/Communications
 Requires:	%{name} = %{version}-%{release}
 
